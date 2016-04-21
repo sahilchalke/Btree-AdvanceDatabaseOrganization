@@ -4,6 +4,34 @@
 #include "dberror.h"
 #include "tables.h"
 
+
+
+typedef struct Scankey {
+	struct Btree *currentNode;
+	int recnumber;
+} Scankey;
+
+typedef struct Btree {
+	int *keys;
+	struct Btree *parent;
+	struct Btree **pointers;
+	RID *records;
+	bool is_leaf;
+	int num_keys;
+	int blkNum;
+	struct Btree *next;
+	struct Btree *prev;
+} Btree;
+
+typedef struct Btree_stat {
+	void *mgmtData;
+	void *fileInfo;
+	int num_nodes;
+	int num_inserts;
+	int order;
+} Btree_stat;
+
+
 // structure for accessing btrees
 typedef struct BTreeHandle {
   DataType keyType;

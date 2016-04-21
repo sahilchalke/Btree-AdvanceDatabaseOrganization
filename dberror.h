@@ -41,7 +41,7 @@ typedef int RC;
 #define RC_RECORD_NOT_FOUND 403
 #define RC_NO_SUCH_ATTRIBUTE_IN_TABLE 404
 
-
+#define RC_NOT_OK 500
 
 /* holder for error messages */
 extern char *RC_message;
